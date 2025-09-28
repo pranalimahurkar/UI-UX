@@ -1,0 +1,104 @@
+{% extends 'Base.html' %}
+
+{% load static %}
+
+{% block title %}Gallery{% endblock title %}
+
+{% block body %}
+<style>
+  .gallery-title {
+      text-align: center;
+      margin-top: 30px;
+  }
+  .gallery-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin: 30px;
+  }
+  .gallery-card {
+      width: 18rem;
+      height: 18rem;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .gallery-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+  }
+  .gallery-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 10px 18px rgba(0,0,0,0.15);
+  }
+</style>
+
+<h1 class="gallery-title animate-heading">Our Gallery</h1>
+
+<div class="gallery-section">
+    <div class="gallery-card">
+        <img src="{% static 'IMAGES/1.jpg' %}" alt="Gallery Image 1">
+    </div>
+    <div class="gallery-card">
+        <img src="{% static 'IMAGES/2.jpg' %}" alt="Gallery Image 2">
+    </div>
+    <div class="gallery-card">
+        <img src="{% static 'IMAGES/3.jpg' %}" alt="Gallery Image 3">
+    </div>
+    <div class="gallery-card">
+        <img src="{% static 'IMAGES/4.jpg' %}" alt="Gallery Image 4">
+    </div>
+    <div class="gallery-card">
+        <img src="{% static 'IMAGES/5.jpg' %}" alt="Gallery Image 5">
+    </div>
+    <div class="gallery-card">
+        <img src="{% static 'IMAGES/6.jpg' %}" alt="Gallery Image 6">
+    </div>
+     <div class="gallery-card">
+        <img src="{% static 'IMAGES/7.jpg' %}" alt="Gallery Image 6">
+    </div>
+     <div class="gallery-card">
+        <img src="{% static 'IMAGES/8.jpg' %}" alt="Gallery Image 6">
+    </div>
+     <div class="gallery-card">
+        <img src="{% static 'IMAGES/9.jpg' %}" alt="Gallery Image 6">
+    </div>
+    <div class="gallery-card">
+        <img src="{% static 'IMAGES/1.jpg' %}" alt="Gallery Image 1">
+    </div>
+    <div class="gallery-card">
+        <img src="{% static 'IMAGES/2.jpg' %}" alt="Gallery Image 2">
+    </div>
+    <div class="gallery-card">
+        <img src="{% static 'IMAGES/3.jpg' %}" alt="Gallery Image 3">
+    </div>
+    <div class="gallery-card">
+        <img src="{% static 'IMAGES/4.jpg' %}" alt="Gallery Image 4">
+    </div>
+    <div class="gallery-card">
+        <img src="{% static 'IMAGES/5.jpg' %}" alt="Gallery Image 5">
+    </div>
+    <div class="gallery-card">
+        <img src="{% static 'IMAGES/6.jpg' %}" alt="Gallery Image 6">
+    </div>
+     <div class="gallery-card">
+        <img src="{% static 'IMAGES/7.jpg' %}" alt="Gallery Image 6">
+    </div>
+     <div class="gallery-card">
+        <img src="{% static 'IMAGES/8.jpg' %}" alt="Gallery Image 6">
+    </div>
+     <div class="gallery-card">
+        <img src="{% static 'IMAGES/9.jpg' %}" alt="Gallery Image 6">
+    </div>
+     <div class="gallery-card">
+        <img src="{% static 'IMAGES/7.jpg' %}" alt="Gallery Image 6">
+    </div>
+     <div class="gallery-card">
+        <img src="{% static 'IMAGES/8.jpg' %}" alt="Gallery Image 6">
+    </div>
+    
+</div>
+{% endblock body %}

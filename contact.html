@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Contact Us{% endblock title %}
+
+{% block body %}
+<style>
+  .form-container {
+    background-color: #f2f2f2;
+    border: 2px solid #ccc;
+    width: 50%;
+    margin: 80px auto;
+    border-radius: 10px;
+    padding: 25px;
+  }
+/* Add this style */
+.get-in-touch {
+  position: relative;
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+
+.get-in-touch::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background-color: #000;
+  transition: width 0.5s ease, left 0.5s ease;
+}
+
+.get-in-touch:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+</style>
+
+<h1 class="get-in-touch" style="text-align:center; margin-top:70px;">Get In Touch</h1>
+
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+      <strong>{{ message }}</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  {% endfor %}
+{% endif %}
+
+<div class="form-container">
+  <h4 style="text-align: center;">Contact Form</h4>
+
+  <form method="POST" action="{% url 'contact' %}">
+    {% csrf_token %}
+
+    <div class="form-group mt-2">
+      <label for="name">Full Name</label>
+      <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+    </div>
+
+    <div class="form-group mt-3">
+      <label for="email">Email address</label>
+      <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+    </div>
+
+    <div class="form-group mt-3">
+      <label for="phone">Phone Number</label>
+      <input type="text" class="form-control" id="phone" name="phone" placeholder="Contact number" required>
+    </div>
+
+    <div class="form-group mt-3">
+      <label for="message">Message</label>
+      <textarea class="form-control" id="message" name="message" rows="4" placeholder="Your message / question" required></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-dark mt-4">Send Message</button>
+  </form>
+</div>
+{% endblock body %}

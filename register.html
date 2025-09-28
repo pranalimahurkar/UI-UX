@@ -1,0 +1,119 @@
+{% extends 'Base.html' %}
+
+{% block title %}Register{% endblock title %}
+
+{% block body %}
+<style>
+  .register-container {
+      width: 420px;
+      margin: 80px auto;
+      padding: 30px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      animation: fadeIn 0.5s ease-in-out;
+  }
+  .register-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+  }
+  .register-container form input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+      transition: border 0.3s;
+  }
+  .register-container form input:focus {
+      border-color: #007bff;
+      outline: none;
+  }
+  .register-container button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background: #007bff;
+      color: #fff;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+  }
+  .register-container button:hover {
+      background: #0056b3;
+  }
+  .register-container p {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 14px;
+  }
+  .register-container p a {
+      color: #007bff;
+      text-decoration: none;
+  }
+  .register-container p a:hover {
+      text-decoration: underline;
+  }
+  @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+  }
+
+   @keyframes slideFade {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-heading {
+  position: relative;
+  animation: slideFade 1.2s ease forwards;
+  display: block;   /* so underline works nicely */
+}
+
+/* Underline hover effect */
+.animate-heading::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background-color: #000;
+  transition: width 0.5s ease, left 0.5s ease;
+}
+
+.animate-heading:hover::after {
+  width: 100%;
+  left: 0;
+}
+.animate-heading{
+    text-align: center;
+    margin-top: 30px;
+}
+</style>
+
+<h1 class="animate-heading">REGISTRATION</h1>
+
+<div class="register-container ">
+    <h2>Create an Account</h2>
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Enter Username" required>
+        <input type="email" name="email" placeholder="Enter Email" required>
+        <input type="password" name="password1" placeholder="Enter Password" required>
+        <input type="password" name="password2" placeholder="Confirm Password" required>
+        <button type="submit">Register</button>
+    </form>
+    <p>Already have an account? <a href="{% url 'dashboard' %}">Login here</a></p>
+</div>
+{% endblock body %}
